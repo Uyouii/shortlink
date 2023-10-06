@@ -25,7 +25,7 @@ type ShortLinkDao struct {
 	Engine *xorm.Engine
 }
 
-func GetNewShortLinkDao(config *MysqlDbConfig) db_base.ShortLinkDbInterface {
+func GetNewShortLinkDb(config *MysqlDbConfig) db_base.ShortLinkDbInterface {
 	shorLinkDao := &ShortLinkDao{}
 	err := shorLinkDao.Init(config)
 	if err != nil {

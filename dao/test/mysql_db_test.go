@@ -8,7 +8,7 @@ import (
 	"uyouii.cool/shortlink/dao/mysql_db"
 )
 
-var testDb = mysql_db.GetNewShortLinkDao(&mysql_db.MysqlDbConfig{
+var testDb = mysql_db.GetNewShortLinkDb(&mysql_db.MysqlDbConfig{
 	User:           "root",
 	Password:       "asdfgh",
 	DatabaseName:   "short_link_db",
