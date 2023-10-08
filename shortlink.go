@@ -4,9 +4,9 @@ import (
 	"context"
 	"time"
 
-	"uyouii.cool/shortlink/dao"
-	"uyouii.cool/shortlink/dao/db_base"
-	"uyouii.cool/shortlink/dao/mysql_db"
+	"github.com/uyouii/shortlink/dao"
+	"github.com/uyouii/shortlink/dao/db_base"
+	"github.com/uyouii/shortlink/dao/mysql_db"
 )
 
 // TODO: add redis cache and local cache

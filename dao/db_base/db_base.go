@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"uyouii.cool/shortlink/common"
+	"github.com/uyouii/shortlink/common"
 )
 
 type ShortLink struct {

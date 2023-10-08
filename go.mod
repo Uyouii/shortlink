@@ -1,4 +1,4 @@
-module uyouii.cool/shortlink
+module github.com/uyouii/shortlink
 
 go 1.17
 

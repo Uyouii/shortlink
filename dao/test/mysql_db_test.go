@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"testing"
 
-	"uyouii.cool/shortlink/dao/mysql_db"
+	"github.com/uyouii/shortlink/dao/mysql_db"
 )
 
 var testDb = mysql_db.GetNewShortLinkDb(&mysql_db.MysqlDbConfig{

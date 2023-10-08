@@ -6,8 +6,8 @@ import (
 	"time"
 
 	_ "github.com/go-sql-driver/mysql"
-	"uyouii.cool/shortlink/common"
-	"uyouii.cool/shortlink/dao/db_base"
+	"github.com/uyouii/shortlink/common"
+	"github.com/uyouii/shortlink/dao/db_base"
 	"xorm.io/xorm"
 )
 
