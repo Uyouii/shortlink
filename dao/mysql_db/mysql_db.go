@@ -93,7 +93,7 @@ func (d *ShortLinkDao) update(ctx context.Context, shortLink *ShortLinkTab, cond
 	tableName := d.getTableName(tableNum)
 	session := d.Engine.Context(ctx).Table(tableName)
 
-	_, err := session.Update(shortLink)
+	_, err := session.Update(shortLink, cond)
 	if err != nil {
 		errorf("update failed, err: %v, table: %v, data: %+v", err, tableName, shortLink)
 		return err
