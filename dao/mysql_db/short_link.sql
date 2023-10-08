@@ -20,7 +20,7 @@ drop table short_link_tab_00000015;
 create table if not exists short_link_tab_00000000(
     id bigint primary key auto_increment,
     short_link_type int,
-    short_link_path varchar(64) unique,
+    short_link_path varchar(64),
     raw_link_key varchar(64) unique not null,
     raw_link varchar(2048) not null,
     expire_timestamp bigint,
