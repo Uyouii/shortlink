@@ -86,7 +86,7 @@ func (d *ShortLinkDao) insert(ctx context.Context, shortLink *ShortLinkTab) erro
 	return nil
 }
 
-func (d *ShortLinkDao) update(ctx context.Context, shortLink *ShortLinkTab) error {
+func (d *ShortLinkDao) update(ctx context.Context, shortLink *ShortLinkTab, cond *ShortLinkTab) error {
 	infof, errorf := common.GetLogFuns(ctx)
 
 	tableNum := GetTableNumFromRawLinkKey(d.Config.PartitionCount, shortLink.RawLinkKey)
@@ -184,7 +184,7 @@ func (d *ShortLinkDao) GenShortLinkWithExpire(ctx context.Context, rawLink strin
 	idHexStr := Int64ToHexStr(uint64(shortLink.Id))
 	shortLink.ShortLinkPath = linkPathPrefix + idHexStr
 
-	err = d.update(ctx, shortLink)
+	err = d.update(ctx, shortLink, &ShortLinkTab{Id: shortLink.Id})
 	if err != nil {
 		errorf("gen shortlink failed, err: %v, rawlink: %v", err, rawLink)
 		return nil, err
@@ -276,7 +276,7 @@ func (d *ShortLinkDao) SetShortLinkExpire(ctx context.Context, shortLinkPath str
 	}
 	shortLink.UpdateTimestamp = time.Now().UnixMilli()
 
-	err = d.update(ctx, shortLink)
+	err = d.update(ctx, shortLink, &ShortLinkTab{Id: shortLink.Id})
 	if err != nil {
 		errorf("update shortLink failed, err: %v, shortLink: %+v", err, shortLink)
 		return err
