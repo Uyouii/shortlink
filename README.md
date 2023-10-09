@@ -37,6 +37,21 @@ func Init() {
 
 ### redirect with gin
 ```go
+
+func getRawLink(ctx context.Context, shortLinkPath string) (string, error) {
+	infof, errorf := common.GetLogFuns(ctx)
+
+	shortLinkInfo, err := global.ShortLinkGeneragor.GetByShortLinkPath(ctx, shortLinkPath)
+	if err != nil {
+		errorf("get by short link failed, err: %v, shortlinkpath: %v", err, shortLinkPath)
+		return "", common.GetErrorWithMsg(common.ERROR_SYSTEM_ERROR, fmt.Sprintf("%v", err))
+	}
+
+	infof("short link info: %+v", shortLinkInfo)
+
+	return shortLinkInfo.RawLink, nil
+}
+
 func RedirectShortLink(c *gin.Context) {
 	ctx := context.Background()
 	infof, errorf := common.GetLogFuns(ctx)
