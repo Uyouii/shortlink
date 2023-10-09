@@ -5,8 +5,10 @@ a short link go module.
 ## Features
 
 - [x] mysql db
-    - [ ] support expire time
+    - [x] support table partition
+    - [ ] support temperory short link
     - [ ] reuse expired shortlink path
-- [ ] redis cache
-- [ ] local cache
+- [ ] cache
+    - [ ] redis cache
+    - [ ] local cache
 
